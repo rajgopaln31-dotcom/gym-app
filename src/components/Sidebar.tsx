@@ -70,13 +70,14 @@ export default function Sidebar({ view, onNav, onTheme }: Props) {
 
       <Box sx={{ flex: 1, '@media (max-width:820px)': { display: 'none' } }} />
 
-      <Button
-        id="theme"
-        onClick={onTheme}
-        sx={[navBtnSx, { '@media (max-width:820px)': { display: 'none' } }]}
-      >
-        Switch theme
-      </Button>
+      sx={[
+  ...(Array.isArray(navBtnSx) ? navBtnSx : [navBtnSx]),
+  {
+    '@media (max-width:820px)': {
+      display: 'none',
+    },
+  },
+]}
     </Box>
   );
 }
